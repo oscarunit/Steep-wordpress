@@ -13,3 +13,13 @@
 <body <?php body_class(); ?>>
     
     <?php wp_body_open(); ?>
+    <!--HEADER-->
+    <header class="header">
+        <a href="index.php"><img src="wp-content\themes\steep\images\Logo_STEEP.svg" alt="logo STEEP" class="header__logo"></a>
+        <nav class="header__nav">
+            <li class="header__nav__link"><a href="">Activités de recherche <img src="wp-content\themes\steep\images\arrow.svg" alt="Flêche vers le bas" class="header__nav__link__arrow"></a></li>
+            <li class="header__nav__link"><a href="">Vous formez <img src="wp-content\themes\steep\images\arrow.svg" alt="Flêche vers le bas" class="header__nav__link__arrow"></a></li>
+            <li class="header__nav__link"><a href="">Qui sommes-nous ? <img src="wp-content\themes\steep\images\arrow.svg" alt="Flêche vers le bas" class="header__nav__link__arrow"></a></li>
+        </nav>
+        <img src="wp-content\themes\steep\images\rechercher.svg" alt="Recherche" class="header__search">
+    </header>
