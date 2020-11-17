@@ -1,4 +1,9 @@
 <?php
+function initWordpress() {
+    register_nav_menu( 'menu', 'Menu principal');
+}
+add_action('init', 'initWordpress');
+
 function register_assets() {
 
     // Déclarer style.css à la racine du thème
