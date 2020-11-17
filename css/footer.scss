@@ -27,6 +27,7 @@ footer
         display: flex;
         justify-content: space-between;
         width: 100%;
+        margin : 16px 0 32px 0;
         .footer__content__link
         {
             width: 50%;
@@ -35,17 +36,20 @@ footer
                 list-style: none;
                 text-align: right;
                 border-right: 2px solid white;
-                margin : 16px 0 32px 0;
                 li
                 {
-                    margin : 16px 0;
                     a
                     {
                         text-decoration: none;
                         color : white;
                         padding-right: 24px;
                     }
+                    &:nth-child(2)
+                    {
+                        padding : 16px 0;
+                    }
                 }
+                
 
             }
         }
@@ -53,7 +57,18 @@ footer
 
     p
     {
+        position: relative;
         color : white;
         text-align: center;
+        &::before
+        {
+            content: "";
+            position: absolute;
+            width: 72px;
+            height: 2px;
+            background-color: white;
+            top : 50%;
+            transform: translateX(-88px);
+        }
     }
 }

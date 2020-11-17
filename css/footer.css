@@ -24,6 +24,7 @@ footer .footer__content {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  margin: 16px 0 32px 0;
 }
 
 footer .footer__content .footer__content__link {
@@ -34,11 +35,6 @@ footer .footer__content .footer__content__link ul {
   list-style: none;
   text-align: right;
   border-right: 2px solid white;
-  margin: 16px 0 32px 0;
-}
-
-footer .footer__content .footer__content__link ul li {
-  margin: 16px 0;
 }
 
 footer .footer__content .footer__content__link ul li a {
@@ -47,8 +43,24 @@ footer .footer__content .footer__content__link ul li a {
   padding-right: 24px;
 }
 
+footer .footer__content .footer__content__link ul li:nth-child(2) {
+  padding: 16px 0;
+}
+
 footer p {
+  position: relative;
   color: white;
   text-align: center;
+}
+
+footer p::before {
+  content: "";
+  position: absolute;
+  width: 72px;
+  height: 2px;
+  background-color: white;
+  top: 50%;
+  -webkit-transform: translateX(-88px);
+          transform: translateX(-88px);
 }
 /*# sourceMappingURL=footer.css.map */
