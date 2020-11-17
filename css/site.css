@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/*********************
+BODY
+*********************/
+/***Déclaration des variables***/
+div.wrap {
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 12%;
+}
+
+div.wrap strong {
+  font-weight: 700;
+}
+/*# sourceMappingURL=site.css.map */

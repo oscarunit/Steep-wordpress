@@ -1,0 +1,59 @@
+/*********************
+FOOTER
+*********************/
+
+/***Déclaration des variables***/
+$gray : #96A1AE;
+$blue : #62C4DD;
+$gray_footer : #C4C4C4;
+
+footer
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    padding : 16px 12%;
+    background-color: $gray_footer;
+    .footer__content-logo
+    {
+        .footer__logo
+        {
+            width: 176px;
+            height: auto;
+            margin-top : 16px;
+        }
+    }
+    .footer__content
+    {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .footer__content__link
+        {
+            width: 50%;
+            ul
+            {
+                list-style: none;
+                text-align: right;
+                border-right: 2px solid white;
+                margin : 16px 0 32px 0;
+                li
+                {
+                    margin : 16px 0;
+                    a
+                    {
+                        text-decoration: none;
+                        color : white;
+                        padding-right: 24px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    p
+    {
+        color : white;
+        text-align: center;
+    }
+}

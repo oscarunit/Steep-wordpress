@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/*********************
+FOOTER
+*********************/
+/***Déclaration des variables***/
+footer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  padding: 16px 12%;
+  background-color: #C4C4C4;
+}
+
+footer .footer__content-logo .footer__logo {
+  width: 176px;
+  height: auto;
+  margin-top: 16px;
+}
+
+footer .footer__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+footer .footer__content .footer__content__link {
+  width: 50%;
+}
+
+footer .footer__content .footer__content__link ul {
+  list-style: none;
+  text-align: right;
+  border-right: 2px solid white;
+  margin: 16px 0 32px 0;
+}
+
+footer .footer__content .footer__content__link ul li {
+  margin: 16px 0;
+}
+
+footer .footer__content .footer__content__link ul li a {
+  text-decoration: none;
+  color: white;
+  padding-right: 24px;
+}
+
+footer p {
+  color: white;
+  text-align: center;
+}
+/*# sourceMappingURL=footer.css.map */

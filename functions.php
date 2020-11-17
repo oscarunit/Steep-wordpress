@@ -36,5 +36,19 @@ function register_assets() {
         array(), 
         '1.0'
     );
+
+    wp_enqueue_style( 
+        'footer', 
+        get_template_directory_uri() . '/css/footer.css',
+        array(), 
+        '1.0'
+    );
+
+    wp_enqueue_style( 
+        'site', 
+        get_template_directory_uri() . '/css/site.css',
+        array(), 
+        '1.0'
+    );
 }
 add_action( 'wp_enqueue_scripts', 'register_assets' );

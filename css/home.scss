@@ -1,3 +1,20 @@
-h1{
-    color : yellow;
+/*********************
+HOME
+*********************/
+
+/***Déclaration des variables***/
+$gray : #96A1AE;
+$blue : #62C4DD;
+
+.homepage
+{
+    color : $gray;
+    &__link
+    {
+        text-decoration: none;
+        background-color: $blue;
+        color :white;
+        padding : 8px 18px;
+        border-radius: 40px;
+    }
 }
