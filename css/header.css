@@ -5,12 +5,14 @@ HEADER
 /***Déclaration des variables***/
 header {
   font-family: 'Montserrat', sans-serif;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   padding: 0 12%;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
 }
 
 header .header__logo {
@@ -19,28 +21,36 @@ header .header__logo {
   margin: 24px 0;
 }
 
-header .menu-menu-principale-container {
+header .menu-menu-principal-container {
   margin: auto 0 auto auto;
 }
 
-header .menu-menu-principale-container .menu {
+header .menu-menu-principal-container .menu {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   list-style: none;
 }
 
-header .menu-menu-principale-container .menu .menu-item a {
-  font-size: 16px;
+header .menu-menu-principal-container .menu .menu-item-has-children {
+  width: auto;
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children a {
   text-decoration: none;
   color: #96A1AE;
-  margin-right: 32px;
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children > a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 16px;
+  margin-right: 32px;
 }
 
-header .menu-menu-principale-container .menu .menu-item a::after {
+header .menu-menu-principal-container .menu .menu-item-has-children > a::after {
   content: "";
   width: 9px;
   height: 16px;
@@ -50,6 +60,43 @@ header .menu-menu-principale-container .menu .menu-item a::after {
   background-position: center;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children:hover > .sub-menu {
+  visibility: visible;
+  opacity: 100%;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children .sub-menu {
+  position: absolute;
+  top: 24px;
+  visibility: hidden;
+  background-color: white;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 16px 16px 16px 8px;
+  opacity: 0%;
+  -webkit-transform: translateY(-2em);
+          transform: translateY(-2em);
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children .sub-menu a {
+  font-size: 12px;
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children .sub-menu a:hover {
+  color: #62C4DD;
+}
+
+header .menu-menu-principal-container .menu .menu-item-has-children .sub-menu li {
+  padding: 8px 0;
 }
 
 header .header__search {

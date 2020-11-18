@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/*********************
+PAGE
+*********************/
+/***Déclaration des variables***/
+.content__page {
+  padding: 80px 8% 80px 12%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #96A1AE;
+  font-size: 22px;
+  line-height: 32px;
+  margin: 24px 0;
+}
+
+.content__page__texts {
+  width: 55%;
+}
+
+.content__page__texts h3 {
+  color: #62C4DD;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 32px;
+  margin: 48px 0 24px 0;
+}
+
+.content__page__texts p {
+  padding: 24px 0;
+}
+
+.content__page__texts p a {
+  color: #62C4DD;
+}
+
+.content__page__texts figure {
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 24px 0;
+}
+
+.content__page__texts figure ul {
+  width: 100%;
+}
+
+.content__page__texts figure ul figure {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.content__page__texts figure ul figure img {
+  margin: auto;
+}
+
+.content__page__texts > ul li {
+  padding: 24px 0 24px 72px;
+  list-style: inside;
+  list-style-type: disc;
+  /*&::before 
+            {
+                content: "•";
+                color: $blue;
+                margin-right: 8px;
+            }*/
+}
+
+.content__page__texts > ol li {
+  padding: 24px 0 24px 72px;
+  list-style: inside;
+  list-style-type: decimal;
+}
+
+.content__page__links {
+  width: 45%;
+}
+
+.content__page__links h3 {
+  color: #62C4DD;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 32px;
+  margin: 152px 0 24px 0;
+  text-align: center;
+}
+
+.content__page__links__element {
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+          box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+  border-radius: 10px;
+  margin: 16px auto;
+  padding: 16px 2%;
+  width: 310px;
+}
+
+.content__page__links__element img {
+  display: block;
+  width: 280px;
+  height: auto;
+  padding: 16px 0;
+}
+
+.content__page__links__element a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #62C4DD;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 300;
+  border-left: 2px solid #62C4DD;
+  padding-left: 24px;
+}
+
+.content__page__links__element a::before {
+  content: "";
+  width: 25px;
+  height: auto;
+  background-image: url("../images/arrow_right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-right: 8px;
+}
+/*# sourceMappingURL=page.css.map */

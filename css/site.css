@@ -3,12 +3,15 @@
 BODY
 *********************/
 /***Déclaration des variables***/
-div.wrap {
+body {
   font-family: 'Montserrat', sans-serif;
+}
+
+div.wrap {
   padding: 0 12%;
 }
 
-div.wrap strong {
+strong {
   font-weight: 700;
 }
 /*# sourceMappingURL=site.css.map */
