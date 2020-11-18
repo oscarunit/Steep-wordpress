@@ -14,4 +14,8 @@ div.wrap {
 strong {
   font-weight: 700;
 }
+
+em {
+  font-style: italic;
+}
 /*# sourceMappingURL=site.css.map */

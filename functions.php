@@ -57,3 +57,9 @@ function register_assets() {
     );
 }
 add_action( 'wp_enqueue_scripts', 'register_assets' );
+
+function register_post_types() {
+    // La déclaration de nos Custom Post Types et Taxonomies ira ici
+
+}
+add_action( 'init', 'register_post_types' );

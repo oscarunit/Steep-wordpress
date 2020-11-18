@@ -32,6 +32,8 @@ header
             .menu-item-has-children
             {
                 width: auto;
+                position: relative;
+                z-index: 1;
                 a
                 {
                 text-decoration: none;
@@ -72,8 +74,9 @@ header
                     border-radius: 10px;
                     padding: 16px 16px 16px 8px;
                     opacity: 0%;
-                    transform: translateY(-2em);
+                    transform: translateY(-1em);
                     transition-duration: .4s;
+                    margin :auto;
                     a
                     {
                         font-size: 12px;
