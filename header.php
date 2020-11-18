@@ -15,7 +15,7 @@
     <?php wp_body_open(); ?>
     <!--HEADER-->
     <header>
-        <a href="http://localhost/Wordpress/"><img src="http://localhost/Wordpress/wp-content\themes\steep\images\logo_steep.svg" alt="logo STEEP" class="header__logo"></a>
+        <a href="<?php echo home_url( '/' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>\images\logo_steep.svg" alt="logo STEEP" class="header__logo"></a>
         <?php echo wp_nav_menu('Menu Principal');?>
-        <img src="http://localhost/Wordpress/wp-content\themes\steep\images\rechercher.svg" alt="Recherche" class="header__search">
+        <img src="<?php echo get_template_directory_uri(); ?>\images\rechercher.svg" alt="Recherche" class="header__search">
     </header>

@@ -8,7 +8,7 @@ get_header();
     <div class="content__page__links">
         <h3>Voir aussi</h3>
         <div class="content__page__links__element">
-            <img src="http://localhost/Wordpress/wp-content\themes\steep\images\logo_comprendre_et_agir.svg" alt="Logo Comprendre et Agir"><br />
+            <img src="<?php echo get_template_directory_uri(); ?>\images\logo_comprendre_et_agir.svg" alt="Logo Comprendre et Agir"><br />
             <a href="">Le cycle de conférence</a>
         </div>
     </div>

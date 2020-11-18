@@ -1,10 +1,10 @@
 <footer>
     <div class="footer__content-logo">
-        <img src="http://localhost/Wordpress/wp-content\themes\steep\images\logo_steep_monochrome.svg" alt="Logo STEEP" class="footer__logo">
+        <img src="<?php echo get_template_directory_uri(); ?>\images\logo_steep_monochrome.svg" alt="Logo STEEP" class="footer__logo">
     </div>
     <div class="footer__content">
         <div class="footer__content__logo">
-            <img src="http://localhost/Wordpress/wp-content\themes\steep\images\logo_comprendre_et_agir_monochrome.svg" alt="Logo Comprendre et Agir">
+            <img src="<?php echo get_template_directory_uri(); ?>\images\logo_comprendre_et_agir_monochrome.svg" alt="Logo Comprendre et Agir">
         </div>
         <div class="footer__content__link">
             <ul>
