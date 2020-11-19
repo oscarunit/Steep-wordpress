@@ -1,4 +1,5 @@
 <?php
+add_theme_support( 'post-thumbnails' );
 function initWordpress() {
     register_nav_menu( 'menu', 'Menu principal');
 }
