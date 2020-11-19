@@ -12,6 +12,7 @@ PAGE
   font-size: 22px;
   line-height: 32px;
   margin: 24px 0;
+  counter-reset: li;
 }
 
 .content__page__texts {
@@ -63,20 +64,29 @@ PAGE
 
 .content__page__texts > ul li {
   padding: 24px 0 24px 72px;
-  list-style: inside;
-  list-style-type: disc;
-  /*&::before 
-            {
-                content: "•";
-                color: $blue;
-                margin-right: 8px;
-            }*/
+}
+
+.content__page__texts > ul li::before {
+  content: "\2022";
+  color: #62C4DD;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 .content__page__texts > ol li {
   padding: 24px 0 24px 72px;
-  list-style: inside;
-  list-style-type: decimal;
+}
+
+.content__page__texts > ol li::before {
+  counter-increment: li;
+  content: counter(li) ".";
+  color: #62C4DD;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
 }
 
 .content__page__links {

@@ -1,0 +1,68 @@
+/*********************
+Contact
+*********************/
+
+/***Déclaration des variables***/
+$gray : #96A1AE;
+$blue : #62C4DD;
+$background : #F4F4F4;
+
+.content__page__contact
+{
+    margin : 32px 0 102px 0;
+    p
+    {
+        font-family: 'Montserrat', serif;
+        font-size: 14px;
+        line-height: 17px;
+        color: $gray;
+        margin : 24px 0 16px 0;
+    }
+    ul
+    {
+        li
+        {
+            background: #FFFFFF;
+            box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+            border-radius: 10px;
+            margin : 24px 0;
+            img
+            {
+                width: 56px;
+                height: auto;
+                padding : 32px 16px;
+                vertical-align: middle;
+            }
+        }
+    }
+    .wp-block-column:nth-child(2)
+    {
+        text-align: center;
+        iframe
+        {
+            display: block;
+            width: 383px;
+            height: 259px;
+            border-radius: 10px;
+            margin : 0 auto;
+        }
+    
+        .section__adresse_content__adresse
+        {
+            width: 317px;
+            background: #FFFFFF;
+            box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+            border-radius: 10px;
+            text-align: center;
+            margin : 0 auto;
+        }
+
+        p
+        {
+            line-height: 20px;
+            padding : 24px 48px;
+            margin-top : 28px;
+        }
+    }
+
+}

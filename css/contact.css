@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/*********************
+Contact
+*********************/
+/***Déclaration des variables***/
+.content__page__contact {
+  margin: 32px 0 102px 0;
+}
+
+.content__page__contact p {
+  font-family: 'Montserrat', serif;
+  font-size: 14px;
+  line-height: 17px;
+  color: #96A1AE;
+  margin: 24px 0 16px 0;
+}
+
+.content__page__contact ul li {
+  background: #FFFFFF;
+  -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+          box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+  border-radius: 10px;
+  margin: 24px 0;
+}
+
+.content__page__contact ul li img {
+  width: 56px;
+  height: auto;
+  padding: 32px 16px;
+  vertical-align: middle;
+}
+
+.content__page__contact .wp-block-column:nth-child(2) {
+  text-align: center;
+}
+
+.content__page__contact .wp-block-column:nth-child(2) iframe {
+  display: block;
+  width: 383px;
+  height: 259px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.content__page__contact .wp-block-column:nth-child(2) .section__adresse_content__adresse {
+  width: 317px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+          box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.content__page__contact .wp-block-column:nth-child(2) p {
+  line-height: 20px;
+  padding: 24px 48px;
+  margin-top: 28px;
+}
+/*# sourceMappingURL=contact.css.map */

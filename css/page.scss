@@ -15,6 +15,7 @@ $background : #F4F4F4;
     font-size: 22px;
     line-height: 32px;
     margin : 24px 0;
+    counter-reset: li;
     &__texts
     {
         width: 55%;
@@ -61,20 +62,29 @@ $background : #F4F4F4;
         >ul li
         {
             padding : 24px 0 24px 72px;
-            list-style: inside;
-            list-style-type: disc;
-            /*&::before 
+            &::before 
             {
-                content: "•";
+                content: "\2022";
                 color: $blue;
-                margin-right: 8px;
-            }*/
+                font-weight: bold;
+                display: inline-block;
+                width: 1em; 
+                margin-left: -1em;
+            }
         }
         >ol li
         {
             padding : 24px 0 24px 72px;
-            list-style: inside;
-            list-style-type: decimal;
+            &::before 
+            {
+                counter-increment: li;
+                content: counter(li) ".";
+                color: $blue;
+                font-weight: bold;
+                display: inline-block;
+                width: 1em; 
+                margin-left: -1em;
+            }
         }
     }
     &__links

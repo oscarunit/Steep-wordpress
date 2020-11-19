@@ -2,7 +2,7 @@
 get_header();
 ?>
 <main>
-    <?php the_content(); ?>
+<?php $value = apply_filters( 'the_content', the_content());?>
 </main>
 
 <?php
