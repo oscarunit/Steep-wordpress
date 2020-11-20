@@ -159,6 +159,71 @@ h2 img {
   display: none;
 }
 
+.section__comprendre-et-agir {
+  padding: 64px 12% 48px 12%;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos {
+  width: 312px;
+  height: 320px;
+  background: #FFFFFF;
+  -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+          box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+  border-radius: 10px;
+  margin: 0 32px;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos h4 {
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 21px;
+  color: #000000;
+  padding: 24px 24px 18px 24px;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos p {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  padding: 0 24px 0 24px;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos p:nth-child(2) {
+  color: #96A1AE;
+  margin-bottom: 16px;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos p:nth-child(3) {
+  text-align: right;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir__video {
+  border-radius: 10px;
+  margin: 8px 36px;
+}
+
+.section__comprendre-et-agir .posts__comprendre_et_agir__video iframe {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.section__comprendre-et-agir button {
+  background-color: white;
+  border: none;
+  width: 40px;
+  height: auto;
+  border-radius: 32px;
+  margin: 20px auto auto 0;
+}
+
 .sections__actus {
   padding: 64px 12% 48px 12%;
 }

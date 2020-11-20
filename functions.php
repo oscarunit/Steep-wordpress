@@ -344,14 +344,19 @@ function date_sort($a, $b)
 function add_content_home_video()
 {
     $arrayComprendreEtAgir = get_currents_posts_with_category('comprendre-et-agir', 'video');
-    $addContent = "<div class='posts__comprendre_et_agir'>";
+    $addContent = "<div class='posts__comprendre_et_agir main-carousel'>";
     for($i=0; $i<=sizeof($arrayComprendreEtAgir)-1;$i++){
         $my_postid = $arrayComprendreEtAgir[$i][2];
         $the_post = get_post($my_postid);
-        $the_content = $the_post->post_content;  
+        $the_content = $the_post->post_content;
+        $explode = explode('<div class="wp-block-embed__wrapper">',$the_content);
+        $explode = explode('</div>',$explode[1]);
+        $explode = explode('https://youtu.be/',$explode[0]);
         $the_title =$the_post->post_title;
-        $addContent .= "<div class='posts__comprendre_et_agir__video'>".$the_content."</div>";
+        $addContent .= "<div class='post__comprendre_et_agir__videos carousel-cell'>";
+        $addContent .= "<div class='posts__comprendre_et_agir__video'><iframe src='https://www.youtube.com/embed/".$explode[1]."?feature=oembed'></iframe></div>";
         $addContent .= "<div class='posts__comprendre_et_agir__infos'><h4>".$the_title."</h4><p>".htmlspecialchars($arrayComprendreEtAgir[$i][1])."</p><p>". htmlspecialchars($arrayComprendreEtAgir[$i][0])."</p></div>";
+        $addContent .= "</div>";
     }
     $addContent .= "</div>";
     return $addContent;
@@ -391,7 +396,7 @@ function get_content_post($array, $addContent, $category, $path)
         $the_title = $the_post->post_title;
 
         $the_category = $category;
-        $the_link = home_url( '/' ).'/'.$path.'/'.$the_post->post_name;
+        $the_link = home_url( '/' ).$path.'/'.$the_post->post_name;
 
         $addContent .= "<div class='sections__actus__post carousel-cell'><h4>".$the_title."</h4>";
         $addContent .= "<p class='sections__actus__post--green'>$the_category</p>";
