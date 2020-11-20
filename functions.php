@@ -1,10 +1,14 @@
 <?php
+/*Ajout des images mises en avant*/
 add_theme_support( 'post-thumbnails' );
+
+/*Ajout de la possibilité de créer des menus*/
 function initWordpress() {
     register_nav_menu( 'menu', 'Menu principal');
 }
 add_action('init', 'initWordpress');
 
+/*Décalaration des feuilles de style et des scripts*/
 function register_assets() {
     //Déclarer reset.css
     wp_enqueue_style( 
@@ -22,7 +26,7 @@ function register_assets() {
         '1.0'
     );
   	
-    // Déclarer un autre fichier CSS
+    // Déclaration des autre feuilles de style
     wp_enqueue_style( 
         'home', 
         get_template_directory_uri() . '/css/front-page.css',
@@ -71,6 +75,16 @@ function register_assets() {
         '1.0'
     );
 
+
+    //Déclaration des scripts
+    wp_enqueue_script(
+        'jquerry',
+        get_template_directory_uri(). '/js/jquery-3.5.1.min.js',
+        array(),
+        '3.5.1',
+        true
+    );
+
     wp_enqueue_script( 
         'flickity.pkgd.min', 
         get_template_directory_uri() . '/js/flickity.pkgd.min.js', 
@@ -90,8 +104,9 @@ function register_assets() {
 }
 add_action( 'wp_enqueue_scripts', 'register_assets' );
 
+
+// Functions d'ajout de Custom Post Types et Taxonomies
 function register_post_types() {
-    // La déclaration de nos Custom Post Types et Taxonomies
         // CPT Vidéo
         $labelsVideo = array(
             'name' => 'Video',
@@ -232,23 +247,13 @@ add_action( 'init', 'register_post_types' );
 
 
   
-//Insert ads after second paragraph of single post content.
 
-add_filter( 'the_content', 'prefix_insert_maps' );
+add_filter( 'the_content', 'prefix_insert_content' );
 
-function prefix_insert_maps( $content) {
-    $array = get_post_custom();
-    $add_code = "
-    <div class='section__adresse_content'>
-        <div class='section__adresse_content__carte'>".
-            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5620.971342233818!2d5.804386381639993!3d45.217742385886794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478a5f575929f5a5%3A0x6e9ecd3dc4ffd941!2s655%20Avenue%20de%20l&#39;Europe%2C%2038330%20Montbonnot-Saint-Martin!5e0!3m2!1sfr!2sfr!4v1605776144759!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
-        ."</div>".
-        "<div class='section__adresse_content__adresse'>".
-                "<p>".$array['adresse'][0]."</p>"
-        ."</div>"
-    ."</div>";
-    $ad_code_contact = $add_code;
+/*Insertion de contenu dans le contenu de la page*/
+function prefix_insert_content( $content) {
     
+    $ad_code_contact = add_content_contact();
     $ad_code_video = add_content_home_video();
     $ad_code_actus = add_content_home_actus();
     $balise = '</h2>';
@@ -266,8 +271,7 @@ function prefix_insert_maps( $content) {
     return $content;
 }
 
-// Parent Function that makes the magic happen
-
+/*Insertion de contenu après la balise envoyé en paramètres*/
 function prefix_insert_after( $insertion, $balise_id,$balise_type, $content ) {
     $closing_p = $balise_type;
     $balises = explode( $closing_p, $content );
@@ -286,7 +290,7 @@ function prefix_insert_after( $insertion, $balise_id,$balise_type, $content ) {
 }
 
 
-
+/*Récuperer les posts en fonction de leur types (videos, comprendre&agir, seminaires, ...) et/ou pouvant posséder une catégorie (video notamment)*/
 function get_currents_posts_with_category($category, $type_of_posts)
 {
     if(!empty($category))
@@ -335,46 +339,14 @@ function get_currents_posts_with_category($category, $type_of_posts)
     
     return $arrayContent;
 }
-        
+
+/*Comparer deux dates afin de les ranger dans l'ordre de la plus récente*/
 function date_sort($a, $b)
 {
     return strtotime($b[0]) - strtotime($a[0]);
 }
 
-function add_content_home_video()
-{
-    $arrayComprendreEtAgir = get_currents_posts_with_category('comprendre-et-agir', 'video');
-    $addContent = "<div class='posts__comprendre_et_agir main-carousel'>";
-    for($i=0; $i<=sizeof($arrayComprendreEtAgir)-1;$i++){
-        $my_postid = $arrayComprendreEtAgir[$i][2];
-        $the_post = get_post($my_postid);
-        $the_content = $the_post->post_content;
-        $explode = explode('<div class="wp-block-embed__wrapper">',$the_content);
-        $explode = explode('</div>',$explode[1]);
-        $explode = explode('https://youtu.be/',$explode[0]);
-        $the_title =$the_post->post_title;
-        $addContent .= "<div class='post__comprendre_et_agir__videos carousel-cell'>";
-        $addContent .= "<div class='posts__comprendre_et_agir__video'><iframe src='https://www.youtube.com/embed/".$explode[1]."?feature=oembed'></iframe></div>";
-        $addContent .= "<div class='posts__comprendre_et_agir__infos'><h4>".$the_title."</h4><p>".htmlspecialchars($arrayComprendreEtAgir[$i][1])."</p><p>". htmlspecialchars($arrayComprendreEtAgir[$i][0])."</p></div>";
-        $addContent .= "</div>";
-    }
-    $addContent .= "</div>";
-    return $addContent;
-}
-
-function add_content_home_actus()
-{
-    $arrayComprendreEtAgir = get_currents_posts_with_category('', 'ComprendreAgir');
-    $arraySeminaire = get_currents_posts_with_category('', 'Seminaires');
-    $arrayRejoindreEquipe = get_currents_posts_with_category('', 'RejoindreEquipe');
-    $addContent = "<div class='sections__actus__posts main-carousel'>";
-    $addContent .= get_content_post($arrayComprendreEtAgir, $addContent, 'Comprendre et Agir','comprendreagir');
-    $addContent .= get_content_post($arraySeminaire, $addContent, 'Séminaire','seminaires');
-    $addContent .= get_content_post($arrayRejoindreEquipe, $addContent, 'Rejoindre l\'équipe','rejoindreequipe');
-    $addContent .= "</div>";
-    return $addContent;
-}
-
+/*Recuperer le contenu des posts stockés en amont dans un tableau*/
 function get_content_post($array, $addContent, $category, $path)
 {
     if(sizeof($array) > 2)
@@ -407,6 +379,7 @@ function get_content_post($array, $addContent, $category, $path)
     return $addContent;
 }
 
+/*Créer un extrait de seulement 20mots*/
 function excerpt($excerptValue) {
     $limit = 20;
     $excerpt = explode(' ', $excerptValue, $limit);
@@ -418,6 +391,62 @@ function excerpt($excerptValue) {
     }
     $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
     return $excerpt;
+}
+
+/********* 
+Fonctions d'ajout de contenu
+*********/
+
+//Ajout de contenu dans la page contact (maps + adresse)
+function add_content_contact()
+{
+    $array = get_post_custom();
+    $add_code = "
+    <div class='section__adresse_content'>
+        <div class='section__adresse_content__carte'>".
+            '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5620.971342233818!2d5.804386381639993!3d45.217742385886794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478a5f575929f5a5%3A0x6e9ecd3dc4ffd941!2s655%20Avenue%20de%20l&#39;Europe%2C%2038330%20Montbonnot-Saint-Martin!5e0!3m2!1sfr!2sfr!4v1605776144759!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>'
+        ."</div>".
+        "<div class='section__adresse_content__adresse'>".
+                "<p>".$array['adresse'][0]."</p>"
+        ."</div>"
+    ."</div>";
+    return $add_code;
+}
+
+//Ajout de contenu dans la section comprendre&agir de la page d'accueil
+function add_content_home_video()
+{
+    $arrayComprendreEtAgir = get_currents_posts_with_category('comprendre-et-agir', 'video');
+    $addContent = "<div class='posts__comprendre_et_agir main-carousel'>";
+    for($i=0; $i<=sizeof($arrayComprendreEtAgir)-1;$i++){
+        $my_postid = $arrayComprendreEtAgir[$i][2];
+        $the_post = get_post($my_postid);
+        $the_content = $the_post->post_content;
+        $explode = explode('<div class="wp-block-embed__wrapper">',$the_content);
+        $explode = explode('</div>',$explode[1]);
+        $explode = explode('https://youtu.be/',$explode[0]);
+        $the_title =$the_post->post_title;
+        $addContent .= "<div class='post__comprendre_et_agir__videos carousel-cell'>";
+        $addContent .= "<div class='posts__comprendre_et_agir__video'><iframe src='https://www.youtube.com/embed/".$explode[1]."?feature=oembed'></iframe></div>";
+        $addContent .= "<div class='posts__comprendre_et_agir__infos'><h4>".$the_title."</h4><p>".htmlspecialchars($arrayComprendreEtAgir[$i][1])."</p><p>". htmlspecialchars($arrayComprendreEtAgir[$i][0])."</p></div>";
+        $addContent .= "</div>";
+    }
+    $addContent .= "</div>";
+    return $addContent;
+}
+
+//Ajout de contenu dans la section actus de la page d'accueil
+function add_content_home_actus()
+{
+    $arrayComprendreEtAgir = get_currents_posts_with_category('', 'ComprendreAgir');
+    $arraySeminaire = get_currents_posts_with_category('', 'Seminaires');
+    $arrayRejoindreEquipe = get_currents_posts_with_category('', 'RejoindreEquipe');
+    $addContent = "<div class='sections__actus__posts main-carousel'>";
+    $addContent .= get_content_post($arrayComprendreEtAgir, $addContent, 'Comprendre et Agir','comprendreagir');
+    $addContent .= get_content_post($arraySeminaire, $addContent, 'Séminaire','seminaires');
+    $addContent .= get_content_post($arrayRejoindreEquipe, $addContent, 'Rejoindre l\'équipe','rejoindreequipe');
+    $addContent .= "</div>";
+    return $addContent;
 }
 
 

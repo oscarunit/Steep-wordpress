@@ -164,9 +164,13 @@ h2 img {
 }
 
 .section__comprendre-et-agir .posts__comprendre_et_agir {
-  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   overflow: hidden;
-  margin: 0 auto;
 }
 
 .section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos {
@@ -215,13 +219,25 @@ h2 img {
   border-radius: 10px;
 }
 
+.section__comprendre-et-agir .flickity-viewport {
+  width: 100%;
+}
+
 .section__comprendre-et-agir button {
   background-color: white;
   border: none;
   width: 40px;
   height: auto;
   border-radius: 32px;
-  margin: 20px auto auto 0;
+  margin: 32px 16px 0 16px;
+}
+
+.section__comprendre-et-agir .previous {
+  margin-left: auto;
+}
+
+.section__comprendre-et-agir .next {
+  margin-right: auto;
 }
 
 .sections__actus {
@@ -229,6 +245,12 @@ h2 img {
 }
 
 .sections__actus__posts {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   overflow: hidden;
 }
 
@@ -292,13 +314,25 @@ h2 img {
   margin: 0 24px;
 }
 
+.sections__actus__posts .flickity-viewport {
+  width: 100%;
+}
+
 .sections__actus__posts button {
   background-color: white;
   border: none;
   width: 40px;
   height: auto;
   border-radius: 32px;
-  margin-top: 20px;
+  margin: 32px 16px 0 16px;
+}
+
+.sections__actus__posts .previous {
+  margin-left: auto;
+}
+
+.sections__actus__posts .next {
+  margin-right: auto;
 }
 
 .section__partenaires {
@@ -316,5 +350,9 @@ h2 img {
 
 .section__partenaires .blocks-gallery-grid img {
   margin: auto;
+}
+
+.flickity-button-icon {
+  fill: #96A1AE;
 }
 /*# sourceMappingURL=front-page.css.map */

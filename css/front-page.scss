@@ -167,9 +167,10 @@ h2
     padding : 64px 12% 48px 12%;
     .posts__comprendre_et_agir
     {
-        position: relative;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
         overflow: hidden;
-        margin : 0 auto;
         .post__comprendre_et_agir__videos
         {
             width: 312px;
@@ -217,6 +218,10 @@ h2
         }
     }
 
+    .flickity-viewport
+    {
+        width: 100%;
+    }
     button
     {
         background-color: white;
@@ -224,8 +229,15 @@ h2
         width: 40px;
         height: auto;
         border-radius: 32px;
-        margin : 20px auto auto 0;
-    
+        margin : 32px 16px 0 16px;
+    }
+    .previous
+    {
+        margin-left: auto;
+    }
+    .next
+    {
+        margin-right: auto;
     }
 
 }
@@ -234,6 +246,9 @@ h2
     padding : 64px 12% 48px 12%;
     &__posts
     {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
         overflow: hidden;
         .sections__actus__post
         {
@@ -298,7 +313,10 @@ h2
                 margin : 0 24px;
             }
         }
-
+        .flickity-viewport
+        {
+            width: 100%;
+        }
         button
         {
             background-color: white;
@@ -306,7 +324,16 @@ h2
             width: 40px;
             height: auto;
             border-radius: 32px;
-            margin-top : 20px;
+            margin : 32px 16px 0 16px;
+        }
+
+        .previous
+        {
+            margin-left: auto;
+        }
+        .next
+        {
+            margin-right: auto;
         }
     }
 }
@@ -327,4 +354,9 @@ h2
         }
     }
 
+}
+
+.flickity-button-icon 
+{
+    fill: $gray;
 }

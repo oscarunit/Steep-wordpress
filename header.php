@@ -16,6 +16,9 @@
     <!--HEADER-->
     <header>
         <a href="<?php echo home_url( '/' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>\images\logo_steep.svg" alt="logo STEEP" class="header__logo"></a>
-        <?php echo wp_nav_menu('Menu Principal');?>
+        <?php 
+            /*On charge le menu*/
+            echo wp_nav_menu('Menu Principal');
+        ?>
         <img src="<?php echo get_template_directory_uri(); ?>\images\rechercher.svg" alt="Recherche" class="header__search">
     </header>

@@ -1,10 +1,15 @@
 <?php
+/*Ajout du header*/
 get_header();
 ?>
+
+<!--MAIN DE LA PAGE-->
 <main class="content__page">
     <div class="content__page__texts">
         <?php the_content(); ?>
     </div>
+
+    <!--AJOUT DES LIENS INTERNES-->
     <div class="content__page__links">
         <h3>Voir aussi</h3>
         <div class="content__page__links__element">
@@ -15,5 +20,6 @@ get_header();
 </main>
 
 <?php
+/*Ajout du footer*/
 get_footer();
 ?>
