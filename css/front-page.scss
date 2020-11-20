@@ -162,6 +162,88 @@ h2
     }
 }
 
+.sections__actus
+{
+    padding : 64px 12% 48px 12%;
+    &__posts
+    {
+        overflow: hidden;
+        .sections__actus__post
+        {
+            width: 312px;
+            height: 520px;
+            background: #FFFFFF;
+            box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+            border-radius: 10px;
+            margin: 0 32px;
+            h4
+            {
+                font-weight: 900;
+                font-size: 14px;
+                line-height: 21px;
+                color: #000000;
+                padding : 24px 24px 18px 24px;
+            }
+    
+            .sections__actus__post--green
+            {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 17px;
+                color: #7EBB59;
+                margin-bottom : 16px;
+                padding : 0 24px;
+            }
+    
+            &__excerpt
+            {
+                font-size: 15px;
+                line-height: 24px;
+                color: #96A1AE;
+                margin : 16px 0 24px 0;
+                padding : 0 24px;
+            }
+    
+            &__image
+            {
+                width: 312px;
+                height: 167px;
+                overflow: hidden;
+                background-color: transparentize($gray, .7);
+                img
+                {
+                    display: block;
+                    margin : auto;
+                    max-width: 312px;
+                    height: auto;
+                }
+            }
+    
+            a
+            {
+                background-color: $blue;
+                font-size: 14px;
+                line-height: 17px;
+                color: #FFFFFF;
+                text-decoration: none;
+                padding : 9px 18px;
+                border-radius: 32px;
+                margin : 0 24px;
+            }
+        }
+
+        button
+        {
+            background-color: white;
+            border : none;
+            width: 40px;
+            height: auto;
+            border-radius: 32px;
+            margin-top : 20px;
+        }
+    }
+}
+
 .section__partenaires
 {
     padding : 64px 12%;

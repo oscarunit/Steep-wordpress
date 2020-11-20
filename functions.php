@@ -63,6 +63,30 @@ function register_assets() {
         array(), 
         '1.0'
     );
+
+    wp_enqueue_style( 
+        'contact', 
+        get_template_directory_uri() . '/css/flickity.css',
+        array(), 
+        '1.0'
+    );
+
+    wp_enqueue_script( 
+        'flickity.pkgd.min', 
+        get_template_directory_uri() . '/js/flickity.pkgd.min.js', 
+        array( 'jquery' ), 
+        '1.0', 
+        true
+    );
+
+    wp_enqueue_script( 
+    'front-page', 
+    get_template_directory_uri() . '/js/front-page.js', 
+    array( 'jquery' ), 
+    '1.0', 
+    true
+    );
+    
 }
 add_action( 'wp_enqueue_scripts', 'register_assets' );
 
@@ -107,7 +131,7 @@ function register_post_types() {
             'public' => true,
             'show_in_rest' => true,
             'has_archive' => false,
-            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields' ),
+            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields', 'excerpt' ),
             'menu_position' => 5, 
             'menu_icon' => 'dashicons-format-chat',
         );
@@ -151,7 +175,7 @@ function register_post_types() {
             'public' => true,
             'show_in_rest' => true,
             'has_archive' => false,
-            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields' ),
+            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields', 'excerpt' ),
             'menu_position' => 5, 
             'menu_icon' => 'dashicons-groups',
         );
@@ -173,7 +197,7 @@ function register_post_types() {
             'public' => true,
             'show_in_rest' => true,
             'has_archive' => false,
-            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields' ),
+            'supports' => array( 'title', 'editor','thumbnail', 'custom-fields', 'excerpt' ),
             'menu_position' => 5, 
             'menu_icon' => 'dashicons-id-alt',
         );
@@ -263,7 +287,7 @@ function prefix_insert_after( $insertion, $balise_id,$balise_type, $content ) {
 
 
 
-function get_posts_with_category($category, $type_of_posts)
+function get_currents_posts_with_category($category, $type_of_posts)
 {
     if(!empty($category))
     {
@@ -295,7 +319,15 @@ function get_posts_with_category($category, $type_of_posts)
     $auteur = $array['Auteur'][0];
     $date = $array['Date'][0];
     $sizeArray = sizeof($arrayContent);
-    $arrayContent[$sizeArray] = [$date, $auteur, $post->ID];
+    if(!empty($date))
+    {
+        list($day, $month, $year) = explode('-', $date);
+        $explodeDate = mktime(0, 0, 0, $month, $day, $year);
+        if($explodeDate <= time())
+        {
+            $arrayContent[$sizeArray] = [$date, $auteur, $post->ID];
+        }
+    }
 
     endforeach;wp_reset_postdata();
 
@@ -311,14 +343,15 @@ function date_sort($a, $b)
 
 function add_content_home_video()
 {
-    $arrayComprendreEtAgir = get_posts_with_category('comprendre-et-agir', 'video');
+    $arrayComprendreEtAgir = get_currents_posts_with_category('comprendre-et-agir', 'video');
     $addContent = "<div class='posts__comprendre_et_agir'>";
     for($i=0; $i<=sizeof($arrayComprendreEtAgir)-1;$i++){
         $my_postid = $arrayComprendreEtAgir[$i][2];
         $the_post = get_post($my_postid);
         $the_content = $the_post->post_content;  
+        $the_title =$the_post->post_title;
         $addContent .= "<div class='posts__comprendre_et_agir__video'>".$the_content."</div>";
-        $addContent .= "<div class='posts__comprendre_et_agir__infos'><h4>".htmlspecialchars($arrayComprendreEtAgir[$i][3])."</h4><p>".htmlspecialchars($arrayComprendreEtAgir[$i][1])."</p><p>". htmlspecialchars($arrayComprendreEtAgir[$i][0])."</p></div>";
+        $addContent .= "<div class='posts__comprendre_et_agir__infos'><h4>".$the_title."</h4><p>".htmlspecialchars($arrayComprendreEtAgir[$i][1])."</p><p>". htmlspecialchars($arrayComprendreEtAgir[$i][0])."</p></div>";
     }
     $addContent .= "</div>";
     return $addContent;
@@ -326,15 +359,60 @@ function add_content_home_video()
 
 function add_content_home_actus()
 {
-    $arrayComprendreEtAgir = get_posts_with_category('', 'ComprendreAgir');
-    $addContent = "<div class='posts__actus'>";
-    for($i=0; $i<=sizeof($arrayComprendreEtAgir)-1;$i++){
-        $my_postid = $arrayComprendreEtAgir[$i][2];
-        $the_post = get_post($my_postid);
-        $the_content = $the_post->post_content;
-    }
+    $arrayComprendreEtAgir = get_currents_posts_with_category('', 'ComprendreAgir');
+    $arraySeminaire = get_currents_posts_with_category('', 'Seminaires');
+    $arrayRejoindreEquipe = get_currents_posts_with_category('', 'RejoindreEquipe');
+    $addContent = "<div class='sections__actus__posts main-carousel'>";
+    $addContent .= get_content_post($arrayComprendreEtAgir, $addContent, 'Comprendre et Agir','comprendreagir');
+    $addContent .= get_content_post($arraySeminaire, $addContent, 'Séminaire','seminaires');
+    $addContent .= get_content_post($arrayRejoindreEquipe, $addContent, 'Rejoindre l\'équipe','rejoindreequipe');
     $addContent .= "</div>";
     return $addContent;
+}
+
+function get_content_post($array, $addContent, $category, $path)
+{
+    if(sizeof($array) > 2)
+    {
+        $parcours = 1;
+    }
+    else
+    {
+        $parcours = sizeof($array)-1;
+    }
+    $addContent = "";
+    for($i=0; $i<=$parcours;$i++){
+        $my_postid = $array[$i][2];
+        
+        $the_post = get_post($my_postid);
+        $the_excerpt = $the_post->post_excerpt;
+        $excerptValue = excerpt($the_excerpt);
+        $the_thumbnail = get_the_post_thumbnail($the_post);
+        $the_title = $the_post->post_title;
+
+        $the_category = $category;
+        $the_link = home_url( '/' ).'/'.$path.'/'.$the_post->post_name;
+
+        $addContent .= "<div class='sections__actus__post carousel-cell'><h4>".$the_title."</h4>";
+        $addContent .= "<p class='sections__actus__post--green'>$the_category</p>";
+        $addContent .= "<div class='sections__actus__post__image'>".$the_thumbnail."</div>";
+        $addContent .= "<p class='sections__actus__post__excerpt'>".$excerptValue."</p>";
+        $addContent .= "<a href='".$the_link."'>Lire la suite</a></div>";
+    }
+    return $addContent;
+}
+
+function excerpt($excerptValue) {
+    $limit = 20;
+    $excerpt = explode(' ', $excerptValue, $limit);
+    if (count($excerpt)>=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+    } else {
+    $excerpt = implode(" ",$excerpt);
+    }
+    $excerpt = preg_replace('`[[^]]*]`','',$excerpt);
+    return $excerpt;
 }
 
 

@@ -15,7 +15,10 @@ Contact
   margin: 24px 0 16px 0;
 }
 
-.content__page__contact ul li {
+.content__page__contact div.wp-block-group__inner-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   background: #FFFFFF;
   -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
           box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
@@ -23,11 +26,19 @@ Contact
   margin: 24px 0;
 }
 
-.content__page__contact ul li img {
+.content__page__contact div.wp-block-group__inner-container img {
   width: 56px;
   height: auto;
   padding: 32px 16px;
-  vertical-align: middle;
+}
+
+.content__page__contact div.wp-block-group__inner-container p {
+  margin: auto 0;
+}
+
+.content__page__contact div.wp-block-group__inner-container p a {
+  text-decoration: none;
+  color: #62C4DD;
 }
 
 .content__page__contact .wp-block-column:nth-child(2) {

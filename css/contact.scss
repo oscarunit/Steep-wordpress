@@ -18,20 +18,27 @@ $background : #F4F4F4;
         color: $gray;
         margin : 24px 0 16px 0;
     }
-    ul
+
+    div.wp-block-group__inner-container
     {
-        li
+        display: flex;
+        background: #FFFFFF;
+        box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
+        border-radius: 10px;
+        margin : 24px 0;
+        img
         {
-            background: #FFFFFF;
-            box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
-            border-radius: 10px;
-            margin : 24px 0;
-            img
+            width: 56px;
+            height: auto;
+            padding : 32px 16px;
+        }
+        p
+        {
+            margin : auto 0;
+            a
             {
-                width: 56px;
-                height: auto;
-                padding : 32px 16px;
-                vertical-align: middle;
+                text-decoration: none;
+                color : $blue;
             }
         }
     }
