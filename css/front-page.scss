@@ -6,23 +6,8 @@ HOME
 $gray : #96A1AE;
 $blue : #62C4DD;
 $background : #F4F4F4;
-h2
-{
-    color : $blue;
-    font-size: 36px;
-    line-height: 59px;
-    font-weight: 700;
-    margin : 0 0 72px 0;
-    img
-    {
-        width: 53px;
-        height: auto;
-        vertical-align: middle;
-        margin-right: 18px;
-    }
-}
 
-.wp-block-media-text
+.section__homepage
 {
     height: 560px;
     color : $gray;
@@ -30,15 +15,15 @@ h2
     overflow: hidden;
     .wp-block-media-text__media
     {
+        position: relative;
         margin-right: -27rem;
         transform: skew(-10deg,0);
         overflow: hidden;
-        position: relative;
         img
         {
-            transform: skew(10deg,0) translateX(-5rem);
             height: 560px;
             width: auto;
+            transform: skew(10deg,0) translateX(-5rem);
         }
         &:after
         {
@@ -217,29 +202,6 @@ h2
             }
         }
     }
-
-    .flickity-viewport
-    {
-        width: 100%;
-    }
-    button
-    {
-        background-color: white;
-        border : none;
-        width: 40px;
-        height: auto;
-        border-radius: 32px;
-        margin : 32px 16px 0 16px;
-    }
-    .previous
-    {
-        margin-left: auto;
-    }
-    .next
-    {
-        margin-right: auto;
-    }
-
 }
 .sections__actus
 {
@@ -313,28 +275,6 @@ h2
                 margin : 0 24px;
             }
         }
-        .flickity-viewport
-        {
-            width: 100%;
-        }
-        button
-        {
-            background-color: white;
-            border : none;
-            width: 40px;
-            height: auto;
-            border-radius: 32px;
-            margin : 32px 16px 0 16px;
-        }
-
-        .previous
-        {
-            margin-left: auto;
-        }
-        .next
-        {
-            margin-right: auto;
-        }
     }
 }
 
@@ -359,4 +299,29 @@ h2
 .flickity-button-icon 
 {
     fill: $gray;
+}
+
+.flickity-viewport
+{
+    width: 100%;
+}
+
+button
+{
+    background-color: white;
+    border : none;
+    width: 40px;
+    height: auto;
+    border-radius: 32px;
+    margin : 32px 16px 0 16px;
+}
+
+.previous
+{
+    margin-left: auto;
+}
+
+.next
+{
+    margin-right: auto;
 }

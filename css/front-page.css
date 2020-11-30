@@ -3,44 +3,29 @@
 HOME
 *********************/
 /***Déclaration des variables***/
-h2 {
-  color: #62C4DD;
-  font-size: 36px;
-  line-height: 59px;
-  font-weight: 700;
-  margin: 0 0 72px 0;
-}
-
-h2 img {
-  width: 53px;
-  height: auto;
-  vertical-align: middle;
-  margin-right: 18px;
-}
-
-.wp-block-media-text {
+.section__homepage {
   height: 560px;
   color: #96A1AE;
   padding-left: 12%;
   overflow: hidden;
 }
 
-.wp-block-media-text .wp-block-media-text__media {
+.section__homepage .wp-block-media-text__media {
+  position: relative;
   margin-right: -27rem;
   -webkit-transform: skew(-10deg, 0);
           transform: skew(-10deg, 0);
   overflow: hidden;
-  position: relative;
 }
 
-.wp-block-media-text .wp-block-media-text__media img {
-  -webkit-transform: skew(10deg, 0) translateX(-5rem);
-          transform: skew(10deg, 0) translateX(-5rem);
+.section__homepage .wp-block-media-text__media img {
   height: 560px;
   width: auto;
+  -webkit-transform: skew(10deg, 0) translateX(-5rem);
+          transform: skew(10deg, 0) translateX(-5rem);
 }
 
-.wp-block-media-text .wp-block-media-text__media:after {
+.section__homepage .wp-block-media-text__media:after {
   position: absolute;
   content: '';
   display: block;
@@ -53,7 +38,7 @@ h2 img {
   left: 0;
 }
 
-.wp-block-media-text a {
+.section__homepage a {
   text-decoration: none;
   background-color: #62C4DD;
   border: 1px solid #62C4DD;
@@ -65,14 +50,14 @@ h2 img {
   transition: .2s;
 }
 
-.wp-block-media-text a:hover {
+.section__homepage a:hover {
   color: #62C4DD;
   background-color: white;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
-.wp-block-media-text .wp-block-media-text__content {
+.section__homepage .wp-block-media-text__content {
   line-height: 32px;
   text-align: left;
   padding: 0 56px 0 0;
@@ -219,27 +204,6 @@ h2 img {
   border-radius: 10px;
 }
 
-.section__comprendre-et-agir .flickity-viewport {
-  width: 100%;
-}
-
-.section__comprendre-et-agir button {
-  background-color: white;
-  border: none;
-  width: 40px;
-  height: auto;
-  border-radius: 32px;
-  margin: 32px 16px 0 16px;
-}
-
-.section__comprendre-et-agir .previous {
-  margin-left: auto;
-}
-
-.section__comprendre-et-agir .next {
-  margin-right: auto;
-}
-
 .sections__actus {
   padding: 64px 12% 48px 12%;
 }
@@ -314,27 +278,6 @@ h2 img {
   margin: 0 24px;
 }
 
-.sections__actus__posts .flickity-viewport {
-  width: 100%;
-}
-
-.sections__actus__posts button {
-  background-color: white;
-  border: none;
-  width: 40px;
-  height: auto;
-  border-radius: 32px;
-  margin: 32px 16px 0 16px;
-}
-
-.sections__actus__posts .previous {
-  margin-left: auto;
-}
-
-.sections__actus__posts .next {
-  margin-right: auto;
-}
-
 .section__partenaires {
   padding: 64px 12%;
   background-color: #F4F4F4;
@@ -354,5 +297,26 @@ h2 img {
 
 .flickity-button-icon {
   fill: #96A1AE;
+}
+
+.flickity-viewport {
+  width: 100%;
+}
+
+button {
+  background-color: white;
+  border: none;
+  width: 40px;
+  height: auto;
+  border-radius: 32px;
+  margin: 32px 16px 0 16px;
+}
+
+.previous {
+  margin-left: auto;
+}
+
+.next {
+  margin-right: auto;
 }
 /*# sourceMappingURL=front-page.css.map */
