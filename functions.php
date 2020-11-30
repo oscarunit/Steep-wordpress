@@ -124,7 +124,7 @@ function register_post_types() {
             'has_archive' => false,
             'supports' => array( 'title', 'editor','thumbnail', 'custom-fields' ),
             'menu_position' => 5, 
-            'menu_icon' => 'dashicons-video-alt3',
+            'menu_icon' => 'dashicons-video-alt3',  
             'taxonomies'  => array( 'category' ),
         );
     
