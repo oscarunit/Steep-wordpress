@@ -160,7 +160,8 @@ function register_post_types() {
             'singular_name' => 'Cours',
             'add_new_item' => 'Ajouter des Cours',
             'edit_item' => 'Modifier Cours',
-            'menu_name' => 'Cours'
+            'menu_name' => 'Cours',
+            'taxonomies'  => array( 'category' ),
         );
     
         $argsCours = array(
@@ -381,7 +382,7 @@ function get_content_post($array, $addContent, $category, $path)
 
 /*Créer un extrait de seulement 20mots*/
 function excerpt($excerptValue) {
-    $limit = 20;
+    $limit = 18;
     $excerpt = explode(' ', $excerptValue, $limit);
     if (count($excerpt)>=$limit) {
     array_pop($excerpt);

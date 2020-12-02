@@ -1,7 +1,7 @@
 
 /*Carousel*/
 $('.main-carousel').flickity({
-    groupCells: 3,
+    groupCells: 4,
     contain: true,
     accessibility: false
 });
