@@ -277,7 +277,7 @@ HOME
   margin: auto;
 }
 
-.sections__actus a, .section__comprendre-et-agir a {
+.sections__actus p > a, .section__comprendre-et-agir p > a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,7 +290,7 @@ HOME
   margin-top: 48px;
 }
 
-.sections__actus a::before, .section__comprendre-et-agir a::before {
+.sections__actus p > a::before, .section__comprendre-et-agir p > a::before {
   content: "";
   width: 25px;
   height: auto;
