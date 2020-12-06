@@ -28,6 +28,13 @@ function register_assets() {
   	
     // Déclaration des autre feuilles de style
     wp_enqueue_style( 
+        'slider', 
+        'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css',
+        array(), 
+        '1.0'
+    );
+
+    wp_enqueue_style( 
         'home', 
         get_template_directory_uri() . '/css/front-page.css',
         array(), 
@@ -68,14 +75,6 @@ function register_assets() {
         '1.0'
     );
 
-    wp_enqueue_style( 
-        'contact', 
-        get_template_directory_uri() . '/css/flickity.css',
-        array(), 
-        '1.0'
-    );
-
-
     //Déclaration des scripts
     wp_enqueue_script(
         'jquerry',
@@ -86,8 +85,8 @@ function register_assets() {
     );
 
     wp_enqueue_script( 
-        'flickity.pkgd.min', 
-        get_template_directory_uri() . '/js/flickity.pkgd.min.js', 
+        'slider', 
+        'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js', 
         array( 'jquery' ), 
         '1.0', 
         true
@@ -100,6 +99,7 @@ function register_assets() {
     '1.0', 
     true
     );
+    
     
 }
 add_action( 'wp_enqueue_scripts', 'register_assets' );
@@ -371,11 +371,11 @@ function get_content_post($array, $addContent, $category, $path)
         $the_category = $category;
         $the_link = home_url( '/' ).$path.'/'.$the_post->post_name;
 
-        $addContent .= "<div class='sections__actus__post carousel-cell'><h4>".$the_title."</h4>";
+        $addContent .= "<li class='sections__actus__post splide__slide'><article><h4>".$the_title."</h4>";
         $addContent .= "<p class='sections__actus__post--green'>$the_category</p>";
         $addContent .= "<div class='sections__actus__post__image'>".$the_thumbnail."</div>";
         $addContent .= "<p class='sections__actus__post__excerpt'>".$excerptValue."</p>";
-        $addContent .= "<a href='".$the_link."'>Lire la suite</a></div>";
+        $addContent .= "<a href='".$the_link."'>Lire la suite</a></article></li>";
     }
     return $addContent;
 }
@@ -418,7 +418,7 @@ function add_content_contact()
 function add_content_home_video()
 {
     $arrayComprendreEtAgir = get_currents_posts_with_category('comprendre-et-agir', 'video');
-    $addContent = "<div class='posts__comprendre_et_agir main-carousel'>";
+    $addContent = "<div class='posts__comprendre_et_agir splide' id='splide1'><div class='splide__slider'><div class='splide__track'><ul class='splide__list'>";
     for($i=0; $i<=sizeof($arrayComprendreEtAgir)-1;$i++){
         $my_postid = $arrayComprendreEtAgir[$i][2];
         $the_post = get_post($my_postid);
@@ -427,12 +427,14 @@ function add_content_home_video()
         $explode = explode('</div>',$explode[1]);
         $explode = explode('https://youtu.be/',$explode[0]);
         $the_title =$the_post->post_title;
-        $addContent .= "<div class='post__comprendre_et_agir__videos carousel-cell'>";
+        $addContent .= "<li class='post__comprendre_et_agir__videos splide__slide'>";
+        $addContent .= "<article>";
         $addContent .= "<div class='posts__comprendre_et_agir__video'><iframe src='https://www.youtube.com/embed/".$explode[1]."?feature=oembed'></iframe></div>";
         $addContent .= "<div class='posts__comprendre_et_agir__infos'><h4>".$the_title."</h4><p>".htmlspecialchars($arrayComprendreEtAgir[$i][1])."</p><p>". htmlspecialchars($arrayComprendreEtAgir[$i][0])."</p></div>";
-        $addContent .= "</div>";
+        $addContent .= "</article>";
+        $addContent .= "</li>";
     }
-    $addContent .= "</div>";
+    $addContent .= "</ul></div></div></div>";
     return $addContent;
 }
 
@@ -442,14 +444,13 @@ function add_content_home_actus()
     $arrayComprendreEtAgir = get_currents_posts_with_category('', 'ComprendreAgir');
     $arraySeminaire = get_currents_posts_with_category('', 'Seminaires');
     $arrayRejoindreEquipe = get_currents_posts_with_category('', 'RejoindreEquipe');
-    $addContent = "<div class='sections__actus__posts main-carousel'>";
+    $addContent = "<div class='sections__actus__posts splide' id='splide2'><div class='splide__slider'><div class='splide__track'><ul class='splide__list'>";
     $addContent .= get_content_post($arrayComprendreEtAgir, $addContent, 'Comprendre et Agir','comprendreagir');
     $addContent .= get_content_post($arraySeminaire, $addContent, 'Séminaire','seminaires');
     $addContent .= get_content_post($arrayRejoindreEquipe, $addContent, 'Rejoindre l\'équipe','rejoindreequipe');
-    $addContent .= "</div>";
+    $addContent .= "</ul></div></div></div>";
     return $addContent;
 }
-
 
 
 

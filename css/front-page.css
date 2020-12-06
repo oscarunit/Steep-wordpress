@@ -148,27 +148,18 @@ HOME
   padding: 64px 12% 48px 12%;
 }
 
-.section__comprendre-et-agir .posts__comprendre_et_agir {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  overflow: hidden;
-}
-
-.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos {
-  width: 312px;
-  height: 320px;
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos article {
+  width: 70%;
+  height: 88%;
   background: #FFFFFF;
   -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
           box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
   border-radius: 10px;
-  margin: 0 32px;
+  padding: 8px 0;
+  margin: 16px auto;
 }
 
-.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos h4 {
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos article h4 {
   font-weight: 900;
   font-size: 14px;
   line-height: 21px;
@@ -176,7 +167,7 @@ HOME
   padding: 24px 24px 18px 24px;
 }
 
-.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos p {
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos article p {
   font-style: italic;
   font-weight: normal;
   font-size: 12px;
@@ -184,12 +175,12 @@ HOME
   padding: 0 24px 0 24px;
 }
 
-.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos p:nth-child(2) {
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos article p:nth-child(2) {
   color: #96A1AE;
   margin-bottom: 16px;
 }
 
-.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos p:nth-child(3) {
+.section__comprendre-et-agir .posts__comprendre_et_agir .post__comprendre_et_agir__videos article p:nth-child(3) {
   text-align: right;
 }
 
@@ -204,28 +195,37 @@ HOME
   border-radius: 10px;
 }
 
+.section__comprendre-et-agir a {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 34px;
+  color: #62C4DD;
+  border-left: 2px solid #62C4DD;
+}
+
+.section__comprendre-et-agir a::after {
+  content: "";
+  width: 25px;
+  height: auto;
+  margin: 0 8px 0 24px;
+  background-image: url("../images/arrow_right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .sections__actus {
   padding: 64px 12% 48px 12%;
 }
 
-.sections__actus__posts {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  overflow: hidden;
-}
-
-.sections__actus__posts .sections__actus__post {
-  width: 312px;
-  height: 520px;
+.sections__actus__posts .sections__actus__post article {
+  width: 70%;
+  height: 95%;
   background: #FFFFFF;
   -webkit-box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
           box-shadow: 2px 0px 30px rgba(98, 196, 221, 0.25);
   border-radius: 10px;
-  margin: 0 32px;
+  padding: 8px 0;
+  margin: 6px auto 5% auto;
 }
 
 .sections__actus__posts .sections__actus__post h4 {
@@ -254,7 +254,7 @@ HOME
 }
 
 .sections__actus__posts .sections__actus__post__image {
-  width: 312px;
+  width: 100%;
   height: 167px;
   overflow: hidden;
   background-color: rgba(150, 161, 174, 0.3);
@@ -263,7 +263,7 @@ HOME
 .sections__actus__posts .sections__actus__post__image img {
   display: block;
   margin: auto;
-  max-width: 312px;
+  max-width: 100%;
   height: auto;
 }
 
@@ -293,30 +293,5 @@ HOME
 
 .section__partenaires .blocks-gallery-grid img {
   margin: auto;
-}
-
-.flickity-button-icon {
-  fill: #96A1AE;
-}
-
-.flickity-viewport {
-  width: 100%;
-}
-
-button {
-  background-color: white;
-  border: none;
-  width: 40px;
-  height: auto;
-  border-radius: 32px;
-  margin: 32px 16px 0 16px;
-}
-
-.previous {
-  margin-left: auto;
-}
-
-.next {
-  margin-right: auto;
 }
 /*# sourceMappingURL=front-page.css.map */

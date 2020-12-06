@@ -1,10 +1,22 @@
+document.addEventListener( 'DOMContentLoaded', function () {
+	new Splide( '#splide1', {
+    perPage    : 3,
+		breakpoints: {
+			600: {
+				perPage: 1,
+			}
+		}
+  } ).mount();
 
-/*Carousel*/
-$('.main-carousel').flickity({
-    groupCells: 4,
-    contain: true,
-    accessibility: false
-});
+  new Splide( '#splide2', {
+    perPage    : 3,
+		breakpoints: {
+			600: {
+				perPage: 1,
+			}
+		}
+	} ).mount();
+} );
 
 
 $( ".section__missions .wp-block-button:nth-child(1)" ).click(function() {//attend le click

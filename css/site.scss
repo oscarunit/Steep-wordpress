@@ -41,3 +41,21 @@ h2
         margin-right: 18px;
     }
 }
+
+
+.splide__arrows
+{
+    button
+    {
+        background: none;
+        svg
+        {
+            color : $gray;
+        }
+    }
+}
+
+.splide__pagination
+{
+    display: none;
+}

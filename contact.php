@@ -12,7 +12,7 @@ get_header();
   <div class="wrap">
     <?php
       /***RECUPERATION DU CONTENU EN Y AJOUTANT LA MAPS AINSI QUE L'ADRESSE */
-      $value = apply_filters( 'the_content', the_content());
+      apply_filters( 'the_content', the_content());
     ?>
   </div>
 </main>

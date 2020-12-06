@@ -33,4 +33,16 @@ h2 img {
   vertical-align: middle;
   margin-right: 18px;
 }
+
+.splide__arrows button {
+  background: none;
+}
+
+.splide__arrows button svg {
+  color: #96A1AE;
+}
+
+.splide__pagination {
+  display: none;
+}
 /*# sourceMappingURL=site.css.map */
