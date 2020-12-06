@@ -203,28 +203,6 @@ $background : #F4F4F4;
             }
         }
     }
-
-    a
-    {
-        display: flex;
-        font-weight: 300;
-        font-size: 18px;
-        line-height: 34px;
-        color: $blue;
-        border-left : 2px solid $blue;
-        text-decoration: none;
-        margin-top : 48px;
-        &::before
-        {
-            content: "";
-            width: 25px;
-            height : auto;
-            margin : 0 8px 0 24px;
-            background-image: url("../images/arrow_right.svg");
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-    }
 }
 .sections__actus
 {
@@ -318,4 +296,29 @@ $background : #F4F4F4;
         }
     }
 
+}
+
+.sections__actus, .section__comprendre-et-agir
+{
+    a
+    {
+        display: flex;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 34px;
+        color: $blue;
+        border-left : 2px solid $blue;
+        text-decoration: none;
+        margin-top : 48px;
+        &::before
+        {
+            content: "";
+            width: 25px;
+            height : auto;
+            margin : 0 8px 0 24px;
+            background-image: url("../images/arrow_right.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
 }

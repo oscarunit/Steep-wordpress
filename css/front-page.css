@@ -195,29 +195,6 @@ HOME
   border-radius: 10px;
 }
 
-.section__comprendre-et-agir a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 34px;
-  color: #62C4DD;
-  border-left: 2px solid #62C4DD;
-  text-decoration: none;
-  margin-top: 48px;
-}
-
-.section__comprendre-et-agir a::before {
-  content: "";
-  width: 25px;
-  height: auto;
-  margin: 0 8px 0 24px;
-  background-image: url("../images/arrow_right.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .sections__actus {
   padding: 64px 12% 48px 12%;
 }
@@ -298,5 +275,28 @@ HOME
 
 .section__partenaires .blocks-gallery-grid img {
   margin: auto;
+}
+
+.sections__actus a, .section__comprendre-et-agir a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 34px;
+  color: #62C4DD;
+  border-left: 2px solid #62C4DD;
+  text-decoration: none;
+  margin-top: 48px;
+}
+
+.sections__actus a::before, .section__comprendre-et-agir a::before {
+  content: "";
+  width: 25px;
+  height: auto;
+  margin: 0 8px 0 24px;
+  background-image: url("../images/arrow_right.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 /*# sourceMappingURL=front-page.css.map */
