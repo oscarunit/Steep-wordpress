@@ -211,7 +211,8 @@ $background : #F4F4F4;
         line-height: 34px;
         color: $blue;
         border-left : 2px solid $blue;
-        &::after
+        text-decoration: none;
+        &::before
         {
             content: "";
             width: 25px;

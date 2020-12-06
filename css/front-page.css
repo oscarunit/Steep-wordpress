@@ -201,9 +201,10 @@ HOME
   line-height: 34px;
   color: #62C4DD;
   border-left: 2px solid #62C4DD;
+  text-decoration: none;
 }
 
-.section__comprendre-et-agir a::after {
+.section__comprendre-et-agir a::before {
   content: "";
   width: 25px;
   height: auto;
